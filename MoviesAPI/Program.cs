@@ -23,6 +23,7 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod();
     });
 });
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -37,6 +38,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 
 });
+builder.Services.AddControllers();
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -60,7 +62,6 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"An error occurred while seeding the database: {ex.Message}");
     }
 }
-app.MapAuthEndpoints();
+app.MapControllers();
 app.MapGet("/", () => "Hello World!");
-app.MapMoviesEndpoints();
 app.Run();

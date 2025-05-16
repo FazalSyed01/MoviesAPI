@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Practice\\FullStackApp\\MovieApp\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj": {}
+    "D:\\Practice\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj": {}
   },
   "projects": {
-    "D:\\Practice\\FullStackApp\\MovieApp\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj": {
+    "D:\\Practice\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Practice\\FullStackApp\\MovieApp\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
+        "projectUniqueName": "D:\\Practice\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
         "projectName": "MoviesAPI",
-        "projectPath": "D:\\Practice\\FullStackApp\\MovieApp\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
+        "projectPath": "D:\\Practice\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
         "packagesPath": "C:\\Users\\Excelsiou\\.nuget\\packages\\",
-        "outputPath": "D:\\Practice\\FullStackApp\\MovieApp\\MoviesAPI\\MoviesAPI\\obj\\",
+        "outputPath": "D:\\Practice\\MoviesAPI\\MoviesAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

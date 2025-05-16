@@ -18,29 +18,31 @@
     ]
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.AuthEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAuthEndpoints\u003Eb__0_0",
-    "RelativePath": "get-users",
+    "ContainingType": "MoviesAPI.Endpoints.AuthController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Auth/get-users",
     "HttpMethod": "GET",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[MoviesAPI.Entities.User, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MoviesAPI.Entities.User, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
-          "application/json"
+          "text/plain",
+          "application/json",
+          "text/json"
         ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.AuthEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAuthEndpoints\u003Eb__0_2",
-    "RelativePath": "login",
+    "ContainingType": "MoviesAPI.Endpoints.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [
       {
@@ -49,38 +51,50 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.MoviesEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapMoviesEndpoints\u003Eb__0_0",
-    "RelativePath": "movies/",
+    "ContainingType": "MoviesAPI.Endpoints.AuthController",
+    "Method": "Signup",
+    "RelativePath": "api/Auth/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MoviesAPI.Endpoints.MoviesController",
+    "Method": "GetMovies",
+    "RelativePath": "api/Movies",
     "HttpMethod": "GET",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[MoviesAPI.Entities.Movie, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MoviesAPI.Entities.Movie, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
-          "application/json"
+          "text/plain",
+          "application/json",
+          "text/json"
         ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.MoviesEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapMoviesEndpoints\u003Eb__0_2",
-    "RelativePath": "movies/",
+    "ContainingType": "MoviesAPI.Endpoints.MoviesController",
+    "Method": "PostMovie",
+    "RelativePath": "api/Movies",
     "HttpMethod": "POST",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [
       {
@@ -91,20 +105,22 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Microsoft.AspNetCore.Http.HttpValidationProblemDetails",
+        "Type": "MoviesAPI.Entities.Movie",
         "MediaTypes": [
-          "application/problem\u002Bjson"
+          "text/plain",
+          "application/json",
+          "text/json"
         ],
-        "StatusCode": 400
+        "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.MoviesEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapMoviesEndpoints\u003Eb__0_1",
-    "RelativePath": "movies/{id}",
+    "ContainingType": "MoviesAPI.Endpoints.MoviesController",
+    "Method": "GetMovie",
+    "RelativePath": "api/Movies/{id}",
     "HttpMethod": "GET",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [
       {
@@ -115,18 +131,22 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "MoviesAPI.Entities.Movie",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.MoviesEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapMoviesEndpoints\u003Eb__0_3",
-    "RelativePath": "movies/{id}",
+    "ContainingType": "MoviesAPI.Endpoints.MoviesController",
+    "Method": "PutMovie",
+    "RelativePath": "api/Movies/{id}",
     "HttpMethod": "PUT",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [
       {
@@ -140,22 +160,14 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Http.HttpValidationProblemDetails",
-        "MediaTypes": [
-          "application/problem\u002Bjson"
-        ],
-        "StatusCode": 400
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "MoviesAPI.Endpoints.MoviesEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapMoviesEndpoints\u003Eb__0_4",
-    "RelativePath": "movies/{id}",
+    "ContainingType": "MoviesAPI.Endpoints.MoviesController",
+    "Method": "DeleteMovie",
+    "RelativePath": "api/Movies/{id}",
     "HttpMethod": "DELETE",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [
       {
@@ -164,34 +176,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MoviesAPI.Endpoints.AuthEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAuthEndpoints\u003Eb__0_1",
-    "RelativePath": "signup",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userDto",
-        "Type": "UserDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   }
 ]

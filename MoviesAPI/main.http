@@ -1,11 +1,12 @@
-﻿GET https://localhost:7002/movies
+﻿GET https://localhost:7002/api/movies
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRmF6dWwgSHVzc2FpbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImV4cCI6MTc0NzMwNjkyNSwiaXNzIjoiTW92aWVzQVBJIiwiYXVkIjoiTW92aWVzQVBJVXNlcnMifQ.UlvxPYMrdPgRh8o7EDGlDPiqmsi12AmuVbknwBfUlVw
 
 ###
-GET https://localhost:7002/movies/7
+GET https://localhost:7002/api/movies/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRmF6dWwgSHVzc2FpbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImV4cCI6MTc0NzMwNjkyNSwiaXNzIjoiTW92aWVzQVBJIiwiYXVkIjoiTW92aWVzQVBJVXNlcnMifQ.UlvxPYMrdPgRh8o7EDGlDPiqmsi12AmuVbknwBfUlVw
 
 ###
-POST https://localhost:7002/movies
+POST https://localhost:7002/api/movies
 Content-type:application/json 
 
 {
@@ -17,7 +18,7 @@ Content-type:application/json
 
 
 ###
-PUT https://localhost:7002/movies/7
+PUT https://localhost:7002/api/movies/7
 Content-type:application/json 
 {
   "Name": "The Batman",
@@ -27,11 +28,11 @@ Content-type:application/json
 }
 
 ###
-DELETE https://localhost:7002/movies/6
+DELETE https://localhost:7002/api/movies/6
 
 
 ###
-POST https://localhost:7002/signup
+POST https://localhost:7002/api/auth/signup
 Content-type:application/json 
 
 {
@@ -42,7 +43,7 @@ Content-type:application/json
 
 
 ###
-POST https://localhost:7002/login
+POST https://localhost:7002/api/auth/login
 Content-type:application/json 
 
 {
@@ -53,4 +54,4 @@ Content-type:application/json
 
 
 ###
-GET https://localhost:7002/get-users
+GET https://localhost:7002/api/auth/get-users
