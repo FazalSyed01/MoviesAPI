@@ -70,6 +70,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MoviesAPI.Endpoints.GenreController",
+    "Method": "GetMovies",
+    "RelativePath": "api/Genre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MoviesAPI.Entities.Genre, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MoviesAPI.Endpoints.MoviesController",
     "Method": "GetMovies",
     "RelativePath": "api/Movies",
