@@ -34,7 +34,7 @@ Content-type:application/json
 
 ###
 DELETE https://localhost:7002/api/movies/6
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRmF6dWwgSHVzc2FpbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImRibyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiLCJleHAiOjE3NTM1NDk4MjAsImlzcyI6Ik1vdmllc0FQSSIsImF1ZCI6Ik1vdmllc0FQSVVzZXJzIn0.35tKJFnddWb5xTH7VGJP2hylru3vvqWeFg8H4sBsnac
 
 ###
 POST https://localhost:7002/api/auth/signup
@@ -53,10 +53,15 @@ Content-type:application/json
 
 {
   "Username": "Fazul Hussain",
-  "Password": "Fazal123"
+  "Password": "Fazal123",
+  "Role": "User"
 
 }
 
 
 ###
 GET https://localhost:7002/api/auth/get-users
+
+###
+GET https://localhost:7002/api/jobs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRmF6dWwgSHVzc2FpbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImV4cCI6MTc0NzMwNjkyNSwiaXNzIjoiTW92aWVzQVBJIiwiYXVkIjoiTW92aWVzQVBJVXNlcnMifQ.UlvxPYMrdPgRh8o7EDGlDPiqmsi12AmuVbknwBfUlVw

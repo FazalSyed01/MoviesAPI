@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
 using MoviesAPI.Entities;
@@ -19,7 +20,9 @@ namespace MoviesAPI.Endpoints
         await _context.Movies.Include(m => m.Genre).ToListAsync();
 
         //GET /movies/{id}
+        [Authorize]
         [HttpGet("{id}")]
+ 
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
             var movie = await _context.Movies.Include(m => m.Genre).FirstOrDefaultAsync(m => m.Id == id);
@@ -69,9 +72,11 @@ namespace MoviesAPI.Endpoints
         }
 
         //DELETE /movies/{id}
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
+       
             var movie = await _context.Movies.FindAsync(id);
             if (movie is null) return NotFound();
 

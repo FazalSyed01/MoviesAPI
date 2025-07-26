@@ -41,6 +41,7 @@ namespace MoviesAPI.Endpoints
             var user = new User
             {
                 Username = userDto.Username,
+                Role = string.IsNullOrWhiteSpace(userDto.Role) ? "User" : userDto.Role,
                 PasswordHash = hasher.HashPassword(null!, userDto.Password)
             };
             _context.User.Add(user);
@@ -67,7 +68,8 @@ namespace MoviesAPI.Endpoints
             var claims = new[]
             {
             new Claim(ClaimTypes.Name, user.Username),
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Role, user.Role ?? "User")
         };
 
             var jwtSettings = _config.GetSection("Jwt");
@@ -90,4 +92,4 @@ namespace MoviesAPI.Endpoints
     
 }
 
-public record UserDto(string Username, string Password);
+public record UserDto(string Username, string Password, string Role);
