@@ -1,3 +1,5 @@
+using KaamKaaj.Application.Interfaces;
+using KaamKaaj.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +13,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 //Use connection string from appsettings.json
-builder.Services.AddDbContext<MovieContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(
     builder.Configuration.GetConnectionString("MoviesDbCS")));
 
@@ -97,7 +99,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 builder.Services.AddAuthorization();
-
+builder.Services.AddScoped<IAuthInterface, AuthService>();
 
 
 var app = builder.Build();
@@ -106,7 +108,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
-        var context = services.GetRequiredService<MovieContext>();
+        var context = services.GetRequiredService<AppDbContext>();
         context.Database.EnsureCreated();
         await context.Database.MigrateAsync();
     }

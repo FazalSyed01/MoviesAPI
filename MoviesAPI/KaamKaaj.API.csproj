@@ -21,5 +21,10 @@
     <PackageReference Include="MinimalApis.Extensions" Version="0.11.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\KaamKaaj.Domain.csproj" />
+    <ProjectReference Include="..\KaamKaaj.Application\KaamKaaj.Application.csproj" />
+    <ProjectReference Include="..\KaamKaaj.Infrastructure\KaamKaaj.Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>

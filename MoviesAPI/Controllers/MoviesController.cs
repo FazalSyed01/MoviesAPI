@@ -11,8 +11,8 @@ namespace MoviesAPI.Endpoints
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly MovieContext _context;
-        public MoviesController(MovieContext context) => _context = context;
+        private readonly AppDbContext _context;
+        public MoviesController(AppDbContext context) => _context = context;
 
         //GET /movies
         [HttpGet]

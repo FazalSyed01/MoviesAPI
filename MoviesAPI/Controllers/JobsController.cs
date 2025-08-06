@@ -9,8 +9,8 @@ namespace MoviesAPI.Endpoints
     [Route("api/[controller]")]
     public class JobsController : ControllerBase
     {
-        private readonly MovieContext _context;
-        public JobsController(MovieContext context) => _context = context;
+        private readonly AppDbContext _context;
+        public JobsController(AppDbContext context) => _context = context;
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Jobs>>> GetJobs() =>

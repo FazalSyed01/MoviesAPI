@@ -9,8 +9,8 @@ namespace MoviesAPI.Endpoints
     [Route("api/[controller]")]
     public class GenreController : ControllerBase
     {
-        private readonly MovieContext _context;
-        public GenreController(MovieContext context) => _context = context;
+        private readonly AppDbContext _context;
+        public GenreController(AppDbContext context) => _context = context;
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Genre>>> GetMovies() =>

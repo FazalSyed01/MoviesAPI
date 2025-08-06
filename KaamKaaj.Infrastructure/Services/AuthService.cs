@@ -1,40 +1,42 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using KaamKaaj.Application.Interfaces;
+using KaamKaaj.Domain.DTOs;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using MoviesAPI.Data;
+using MoviesAPI.Entities;
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using MoviesAPI.Entities;
-using MoviesAPI.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace MoviesAPI.Endpoints
+namespace KaamKaaj.Infrastructure.Services
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class AuthController : ControllerBase
+    public class AuthService : IAuthInterface
     {
 
-        private readonly MovieContext _context;
+        private readonly AppDbContext _context;
         private readonly IConfiguration _config;
-
-        public AuthController(MovieContext context, IConfiguration config)
+        public AuthService(AppDbContext context, IConfiguration config)
         {
             _context = context;
             _config = config;
         }
-        [HttpGet("get-users")]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
             return await _context.User.ToListAsync();
         }
 
-        [HttpPost("signup")]
-        public async Task<IActionResult> Signup([FromBody] UserDto userDto)
+        public async Task<string> SignupAsync(UserDto userDto)
         {
-            if (await _context.User.AnyAsync(x => x.Username == userDto.Username))
+            if (await _context.User.AnyAsync(u => u.Username == userDto.Username))
             {
-                return BadRequest("User already exists");
+                throw new Exception("User already exists");
             }
 
             var hasher = new PasswordHasher<User>();
@@ -44,36 +46,33 @@ namespace MoviesAPI.Endpoints
                 Role = string.IsNullOrWhiteSpace(userDto.Role) ? "User" : userDto.Role,
                 PasswordHash = hasher.HashPassword(null!, userDto.Password)
             };
+
             _context.User.Add(user);
             await _context.SaveChangesAsync();
-            return Ok("User Created");
+
+            return "User Created";
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserDto userDto)
+        public async Task<string> LoginAsync(UserDto userDto)
         {
             var user = await _context.User.FirstOrDefaultAsync(x => x.Username == userDto.Username);
-            if (user is null)
-            {
-                return Unauthorized();
-            }
+            if (user == null)
+                throw new UnauthorizedAccessException("Invalid credentials");
 
             var hasher = new PasswordHasher<User>();
             var result = hasher.VerifyHashedPassword(user, user.PasswordHash, userDto.Password);
             if (result == PasswordVerificationResult.Failed)
-            {
-                return Unauthorized();
-            }
+                throw new UnauthorizedAccessException("Invalid credentials");
 
             var claims = new[]
             {
             new Claim(ClaimTypes.Name, user.Username),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Role, user.Role ?? "User")
-        };
+            };
 
             var jwtSettings = _config.GetSection("Jwt");
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
@@ -84,12 +83,7 @@ namespace MoviesAPI.Endpoints
                 signingCredentials: creds
             );
 
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return Ok(new { token = tokenString });
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
-    
 }
-
-public record UserDto(string Username, string Password, string Role);

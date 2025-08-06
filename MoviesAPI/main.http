@@ -43,6 +43,7 @@ Content-type:application/json
 {
   "Username": "Fazul Hussain",
   "Password": "Fazal123"
+  "Role" : "User"
 
 }
 
