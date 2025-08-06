@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaamKaaj.API", "MoviesAPI\KaamKaaj.API.csproj", "{EC3E5DF6-10EC-4C5D-A93D-2E68AFF8841D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaamKaaj.Domain", "Domain\KaamKaaj.Domain.csproj", "{A5FD44DF-1EAB-4E4F-A51F-8F86A7791BB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaamKaaj.Application", "KaamKaaj.Application\KaamKaaj.Application.csproj", "{39D23B08-7321-4A43-971D-4F10FEE0C442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaamKaaj.Infrastructure", "KaamKaaj.Infrastructure\KaamKaaj.Infrastructure.csproj", "{9618E07E-356A-4524-97E8-3D526F7C25A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC3E5DF6-10EC-4C5D-A93D-2E68AFF8841D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3E5DF6-10EC-4C5D-A93D-2E68AFF8841D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3E5DF6-10EC-4C5D-A93D-2E68AFF8841D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3E5DF6-10EC-4C5D-A93D-2E68AFF8841D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5FD44DF-1EAB-4E4F-A51F-8F86A7791BB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FD44DF-1EAB-4E4F-A51F-8F86A7791BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FD44DF-1EAB-4E4F-A51F-8F86A7791BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FD44DF-1EAB-4E4F-A51F-8F86A7791BB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D23B08-7321-4A43-971D-4F10FEE0C442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D23B08-7321-4A43-971D-4F10FEE0C442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D23B08-7321-4A43-971D-4F10FEE0C442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D23B08-7321-4A43-971D-4F10FEE0C442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9618E07E-356A-4524-97E8-3D526F7C25A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9618E07E-356A-4524-97E8-3D526F7C25A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9618E07E-356A-4524-97E8-3D526F7C25A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9618E07E-356A-4524-97E8-3D526F7C25A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2DAF000-4354-49FF-81EE-05D0EFF20B4F}
+	EndGlobalSection
+EndGlobal
